@@ -22,6 +22,7 @@ ironworks/
 ├── css/style.css   tokens, base styles, components, sections, media queries
 ├── js/main.js      mobile nav and demo-form feedback
 ├── img/gym-floor.jpg  photograph extracted from the supplied Figma copy
+├── img/favicon.svg    lightweight browser icon
 ├── AUDIT.md        gap analysis, plan, and verification
 └── README.md       this file
 ```

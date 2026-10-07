@@ -8,7 +8,7 @@ The supplied folder contains `.vscode/launch.json` (a Chrome launch configuratio
 
 `index.html` contains header/navigation, hero, programs, schedule table, coaches, pricing, reviews, contact form, and footer. Reusable components are the BEM-style `btn`, `program-card`, `coach-card`, `plan`, `review-card`, form fields, and menu toggle. `style.css` holds tokens, a 12-column grid, component styles, and media queries at 1024, 768, and 480 px. `main.js` handles the mobile menu and now the demo-form response.
 
-The `.fig` archive contains one gym photograph in two resolutions plus duplicate render sizes of a dumbbell mark, close icon, Instagram icon, and play icon. It contains no video. The 1024 × 683 photograph was copied into `img/` without a new download.
+The `.fig` archive contains one gym photograph in two resolutions plus duplicate render sizes of a dumbbell mark, close icon, Instagram icon, and play icon. It contains no video. The 1024 × 683 photograph was copied into `img/` without a new download. A small SVG favicon derived from the existing inline barbell mark was added after a browser request exposed the missing icon.
 
 ## Gap analysis by view and component
 
@@ -60,7 +60,7 @@ Estimates are focused developer hours. Completed items were executed in this pas
 
 Semantic landmarks, headings, `article`, labeled form controls, table `caption`/`scope`, `aria-expanded`, live status, visible focus, and reduced-motion support are retained. BEM-style class names are consistent. No framework or build dependency was introduced. The image is a single local JPEG from the supplied Figma file; fonts are the only external runtime request. CSS uses broadly supported layout features and offers system-font fallbacks.
 
-Changes: photo-backed hero and responsive overlay; Figma-like program badges; higher-contrast secondary text; native form validation and truthful demo feedback; removal of placeholder clickable phone/social destinations; menu resize reset; subtle motion; updated README.
+Changes: photo-backed hero and responsive overlay; Figma-like program badges; higher-contrast secondary text; native form validation and truthful demo feedback; removal of placeholder clickable phone/social destinations; menu resize reset; subtle motion; lightweight favicon; updated README.
 
 Verified in local browser at desktop width 1280 px: photo loads, visible hero composition aligns with the rendered Figma desktop frame, and there is no document-level horizontal overflow. Empty form submit focuses the required Name field; valid test values show the demo status without a network submission. Remaining: mobile/tablet visual screenshots, keyboard navigation on a phone, Firefox/Safari, and production form delivery.
 
