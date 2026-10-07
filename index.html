@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ironworks Strength Club — Strength &amp; Conditioning Gym</title>
+  <meta name="description" content="Ironworks is a strength and conditioning club built around barbells, coached programming, and a community that shows up. Book a free trial class.">
+  <meta name="theme-color" content="#14140F">
+
+  <!-- Display + body typefaces. Swap for local/self-hosted files in production. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+
+      <a class="logo" href="#top" aria-label="Ironworks — home">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28">
+            <rect x="2" y="14" width="4" height="4" fill="currentColor"/>
+            <rect x="7" y="10" width="3" height="12" fill="currentColor"/>
+            <rect x="11" y="6" width="3" height="20" fill="currentColor"/>
+            <rect x="18" y="6" width="3" height="20" fill="currentColor"/>
+            <rect x="22" y="10" width="3" height="12" fill="currentColor"/>
+            <rect x="26" y="14" width="4" height="4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo__text">IRONWORKS</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__box">
+          <span class="nav-toggle__line"></span>
+        </span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="btn btn--primary nav__cta" href="#contact">Book a trial</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__pattern" aria-hidden="true"></div>
+      <div class="container hero__inner">
+
+        <div class="hero__copy">
+          <p class="hero__kicker">Strength &amp; conditioning club</p>
+          <h1 class="hero__title">Strong is built,<br>not born.</h1>
+        </div>
+
+        <div class="hero__content">
+          <p class="hero__text">
+            Ironworks is a barbell-first gym for people who'd rather follow a program
+            than guess at one. Small coached classes, honest coaching cues, and a
+            floor that's loud in the right way.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#contact">Book a free trial class</a>
+            <a class="btn btn--ghost btn--lg" href="#schedule">See the schedule</a>
+          </div>
+          <dl class="hero__stats">
+            <div class="hero__stat">
+              <dt>Members training weekly</dt>
+              <dd>420+</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Coached classes a week</dt>
+              <dd>38</dd>
+            </div>
+            <div class="hero__stat">
+              <dt>Years on the same floor</dt>
+              <dd>9</dd>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ PROGRAMS / FEATURES ============ -->
+    <section class="programs" id="programs">
+      <div class="container">
+        <div class="section-head">
+          <h2>Four programs. One floor.</h2>
+          <p>Pick a lane or move between them — your membership covers all four.</p>
+        </div>
+
+        <div class="programs__grid">
+
+          <article class="program-card">
+            <span class="program-card__icon" aria-hidden="true">
+              S
+            </span>
+            <h3 class="program-card__title">Strength</h3>
+            <p class="program-card__text">Squat, press, hinge, pull — a rotating 5-week block that builds real numbers, not just a pump.</p>
+          </article>
+
+          <article class="program-card">
+            <span class="program-card__icon" aria-hidden="true">
+              C
+            </span>
+            <h3 class="program-card__title">Conditioning</h3>
+            <p class="program-card__text">45-minute mixed-modal sessions. Different every day, scaled to your level, always coached.</p>
+          </article>
+
+          <article class="program-card">
+            <span class="program-card__icon" aria-hidden="true">
+              M
+            </span>
+            <h3 class="program-card__title">Mobility &amp; recovery</h3>
+            <p class="program-card__text">A slower 30 minutes for the joints and tissue that carry the other three programs.</p>
+          </article>
+
+          <article class="program-card">
+            <span class="program-card__icon" aria-hidden="true">
+              O
+            </span>
+            <h3 class="program-card__title">Open gym</h3>
+            <p class="program-card__text">Full access to platforms and equipment outside class hours, for your own programming.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCHEDULE ============ -->
+    <section class="schedule" id="schedule">
+      <div class="container">
+        <div class="section-head section-head--on-dark">
+          <h2>This week's floor</h2>
+          <p>Walk in ten minutes early for your first class — a coach will scale everything to you.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="schedule-table">
+            <caption>Class schedule, Monday to Saturday</caption>
+            <thead>
+              <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Mon</th>
+                <th scope="col">Tue</th>
+                <th scope="col">Wed</th>
+                <th scope="col">Thu</th>
+                <th scope="col">Fri</th>
+                <th scope="col">Sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">06:30</th>
+                <td>Strength</td>
+                <td>Conditioning</td>
+                <td>Strength</td>
+                <td>Conditioning</td>
+                <td>Strength</td>
+                <td>Open gym</td>
+              </tr>
+              <tr>
+                <th scope="row">12:00</th>
+                <td>Conditioning</td>
+                <td>Mobility</td>
+                <td>Conditioning</td>
+                <td>Mobility</td>
+                <td>Conditioning</td>
+                <td>Conditioning</td>
+              </tr>
+              <tr>
+                <th scope="row">18:00</th>
+                <td>Strength</td>
+                <td>Strength</td>
+                <td>Strength</td>
+                <td>Strength</td>
+                <td>Strength</td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <th scope="row">19:15</th>
+                <td>Conditioning</td>
+                <td>Open gym</td>
+                <td>Conditioning</td>
+                <td>Open gym</td>
+                <td>Conditioning</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COACHES ============ -->
+    <section class="coaches" id="coaches">
+      <div class="container">
+        <div class="section-head">
+          <h2>Coached by people who lift, too</h2>
+          <p>Four coaches, one programming philosophy: technique first, load second.</p>
+        </div>
+
+        <div class="coaches__grid">
+
+          <article class="coach-card">
+            <span class="coach-card__avatar" aria-hidden="true">MK</span>
+            <h3 class="coach-card__name">Maren Kovacs</h3>
+            <p class="coach-card__role">Head coach · Strength</p>
+            <p class="coach-card__bio">Ten years coaching barbell sport. Believes most plateaus are a technique problem wearing a strength costume.</p>
+          </article>
+
+          <article class="coach-card">
+            <span class="coach-card__avatar" aria-hidden="true">DO</span>
+            <h3 class="coach-card__name">Dario Osei</h3>
+            <p class="coach-card__role">Conditioning coach</p>
+            <p class="coach-card__bio">Builds the daily mixed-modal sessions. Scales every movement so the class works at every level in the room.</p>
+          </article>
+
+          <article class="coach-card">
+            <span class="coach-card__avatar" aria-hidden="true">RL</span>
+            <h3 class="coach-card__name">Ren Lindqvist</h3>
+            <p class="coach-card__role">Mobility &amp; recovery</p>
+            <p class="coach-card__bio">Physiotherapist by training. Runs the slow sessions that keep the fast ones sustainable.</p>
+          </article>
+
+          <article class="coach-card">
+            <span class="coach-card__avatar" aria-hidden="true">TB</span>
+            <h3 class="coach-card__name">Talia Brandt</h3>
+            <p class="coach-card__role">Strength coach</p>
+            <p class="coach-card__bio">Former competitive lifter. Runs the early sessions for people who train best before the day starts.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICING ============ -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <h2>Membership</h2>
+          <p>No joining fee. Pause or cancel with two weeks' notice, any time.</p>
+        </div>
+
+        <div class="pricing__grid">
+
+          <article class="plan">
+            <h3 class="plan__name">Drop-in</h3>
+            <p class="plan__price"><span class="plan__price-currency">$</span>18<span class="plan__price-period"> / class</span></p>
+            <ul class="plan__list">
+              <li>Any single coached class</li>
+              <li>Loaner belt &amp; straps</li>
+              <li>No commitment</li>
+            </ul>
+            <a class="btn btn--ghost plan__btn" href="#contact">Book a class</a>
+          </article>
+
+          <article class="plan plan--featured">
+            <span class="plan__badge">Most members choose this</span>
+            <h3 class="plan__name">Unlimited</h3>
+            <p class="plan__price"><span class="plan__price-currency">$</span>129<span class="plan__price-period"> / month</span></p>
+            <ul class="plan__list">
+              <li>Unlimited coached classes</li>
+              <li>Full open-gym access</li>
+              <li>Monthly progress check-in</li>
+              <li>Guest pass, twice a month</li>
+            </ul>
+            <a class="btn btn--accent plan__btn" href="#contact">Join Ironworks</a>
+          </article>
+
+          <article class="plan">
+            <h3 class="plan__name">Annual</h3>
+            <p class="plan__price"><span class="plan__price-currency">$</span>99<span class="plan__price-period"> / month</span></p>
+            <ul class="plan__list">
+              <li>Everything in Unlimited</li>
+              <li>Billed once a year</li>
+              <li>One free freeze per year</li>
+            </ul>
+            <a class="btn btn--ghost plan__btn" href="#contact">Join Ironworks</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>What the floor says</h2>
+        </div>
+
+        <div class="reviews__grid">
+
+          <figure class="review-card">
+            <blockquote>
+              <p>I'd trained alone for years and stalled out. Six weeks of programmed strength work here did more than the previous two.</p>
+            </blockquote>
+            <figcaption>— Petra V., member since 2023</figcaption>
+          </figure>
+
+          <figure class="review-card">
+            <blockquote>
+              <p>The coaches actually watch your bar path. Nobody had corrected my deadlift setup before I walked in here.</p>
+            </blockquote>
+            <figcaption>— Younes A., member since 2022</figcaption>
+          </figure>
+
+          <figure class="review-card">
+            <blockquote>
+              <p>Conditioning classes are hard but never chaotic. Every session has a clear scale for wherever you're starting from.</p>
+            </blockquote>
+            <figcaption>— Ingrid S., member since 2024</figcaption>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT / SIGNUP ============ -->
+    <section class="contact" id="contact">
+      <div class="container contact__inner">
+
+        <div class="contact__info">
+          <h2>Book your free trial class</h2>
+          <p>Tell us which program you want to try and a coach will confirm a time within one business day.</p>
+
+          <dl class="contact__details">
+            <div>
+              <dt>Address</dt>
+              <dd>14 Foundry Lane, unit 3</dd>
+            </div>
+            <div>
+              <dt>Hours</dt>
+              <dd>Mon–Fri 06:00–21:00 · Sat-Sun 08:00–19:00</dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>+1 (000) 000-0000</dd>
+            </div>
+          </dl>
+        </div>
+
+        <form class="form" action="#contact" method="post">
+
+          <fieldset class="form__group">
+            <legend class="visually-hidden">Your contact details</legend>
+
+            <label class="form__label" for="name">Name</label>
+            <input class="form__field" type="text" id="name" name="name" autocomplete="name" required minlength="2">
+
+            <label class="form__label" for="email">Email</label>
+            <input class="form__field" type="email" id="email" name="email" autocomplete="email" required>
+
+            <label class="form__label" for="phone">Phone</label>
+            <input class="form__field" type="tel" id="phone" name="phone" autocomplete="tel">
+
+            <label class="form__label" for="program">Program you want to try</label>
+            <select class="form__field" id="program" name="program">
+              <option value="strength">Strength</option>
+              <option value="conditioning">Conditioning</option>
+              <option value="mobility">Mobility &amp; recovery</option>
+              <option value="not-sure">Not sure yet</option>
+            </select>
+
+            <label class="form__label" for="message">Anything a coach should know</label>
+            <textarea class="form__field" id="message" name="message" rows="4"></textarea>
+          </fieldset>
+
+          <button class="btn btn--primary form__submit" type="submit">Request my trial class</button>
+          <p class="form__note">Prototype form — requests are not sent yet.</p>
+          <p class="form__status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <a class="logo logo--footer" href="#top" aria-label="Ironworks — home">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="24" height="24">
+            <rect x="2" y="14" width="4" height="4" fill="currentColor"/>
+            <rect x="7" y="10" width="3" height="12" fill="currentColor"/>
+            <rect x="11" y="6" width="3" height="20" fill="currentColor"/>
+            <rect x="18" y="6" width="3" height="20" fill="currentColor"/>
+            <rect x="22" y="10" width="3" height="12" fill="currentColor"/>
+            <rect x="26" y="14" width="4" height="4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="logo__text">IRONWORKS</span>
+      </a>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <ul>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <ul class="footer__social" aria-label="Social media">
+        <li><span role="img" aria-label="Instagram link pending"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span></li>
+        <li><span role="img" aria-label="YouTube link pending"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M10 9l6 3-6 3V9z" fill="currentColor"/></svg></span></li>
+      </ul>
+
+      <p class="footer__copy">© 2026 Ironworks Strength Club. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
