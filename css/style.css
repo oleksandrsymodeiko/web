@@ -45,6 +45,7 @@ table { border-collapse: collapse; }
   --color-ink-soft:   #2A2A22;  /* raised panels on dark sections               */
   --color-paper:      #F1EEE6;  /* chalk white — light section background       */
   --color-paper-soft: #E7E2D6;  /* card fill on light sections                  */
+  --color-paper-hover:#DCD5C8;  /* plan hover on light sections                */
   --color-concrete:   #8B887D;  /* muted grey — secondary text, borders         */
   --color-red:        #D62828;  /* flag red — primary accent, CTAs             */
   --color-red-dark:   #AE1F1F;  /* red hover state                              */
@@ -110,26 +111,25 @@ select:focus-visible {
 }
 
 
-/* ---------- 4. Layout & grid ---------- */
+/* ---------- 4. Layout & Flexbox ---------- */
 .container {
   max-width: var(--container-w);
   margin: 0 auto;
   padding: 0 var(--container-pad);
 }
 
-/* 12-column reference grid — used by the three grids below via span classes.
-   Kept simple (auto-fit flex/grid per component) since no component needs
-   an irregular span; the column count matters for the Figma handoff. */
+/* Equal-width card rows use Flexbox, as in module 02. The basis subtracts
+   the gaps before dividing the available width between cards. */
 .programs__grid,
 .coaches__grid,
 .reviews__grid {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--sp-3);
-  grid-template-columns: repeat(12, 1fr);
 }
 .programs__grid > *,
-.coaches__grid > * { grid-column: span 3; }   /* 12 / 3 = 4-up desktop   */
-.reviews__grid > *  { grid-column: span 4; }  /* 12 / 4 = 3-up desktop   */
+.coaches__grid > * { flex: 0 1 calc((100% - 3 * var(--sp-3)) / 4); min-width: 0; }
+.reviews__grid > * { flex: 0 1 calc((100% - 2 * var(--sp-3)) / 3); min-width: 0; }
 
 .pricing__grid {
   display: flex;
@@ -178,20 +178,12 @@ select:focus-visible {
 
 /* Logo */
 .logo { display: inline-flex; align-items: center; gap: var(--sp-1); color: var(--color-ink); }
+.logo__mark { position: relative; width: 32px; height: 18px; overflow: hidden; flex: none; }
+.logo__mark img { position: absolute; top: 50%; width: 32px; height: 32px; transform: translateY(-50%); }
+.header .logo__mark { mix-blend-mode: multiply; }
+.logo--footer .logo__mark { mix-blend-mode: lighten; }
 .logo__text { font-family: var(--font-display); font-size: 20px; letter-spacing: .04em; }
 .logo--footer { color: var(--color-paper); }
-
-/* Skip link */
-.skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: var(--color-red);
-  color: var(--color-paper);
-  padding: 12px 20px;
-  z-index: 100;
-}
-.skip-link:focus { left: var(--sp-2); top: var(--sp-2); }
 
 .visually-hidden {
   position: absolute;
@@ -256,13 +248,16 @@ select:focus-visible {
   background: var(--color-paper-soft);
   border: 1px solid var(--color-line);
   border-radius: var(--r-md);
+  transition: background-color .2s ease, transform .2s ease;
 }
+.plan:hover { background: var(--color-paper-hover); transform: translateY(-4px); }
 .plan--featured {
   background: var(--color-ink);
   color: var(--color-paper);
-  border-color: var(--color-ink);
+  border-color: var(--color-red);
   box-shadow: var(--shadow-lift);
 }
+.plan--featured:hover { background: var(--color-ink-soft); }
 .plan--featured .plan__price-period { color: var(--color-mist); }
 /* .plan__list li has no color override here on purpose — it inherits the
    white text color set on .plan--featured itself. */
@@ -307,8 +302,8 @@ select:focus-visible {
 .schedule-table tbody tr { border-top: 1px solid var(--color-line-dark); }
 
 /* Form */
-.form { max-width: 480px; }
-.form__group { border: 0; padding: 0; margin: 0; }
+.form { width: 100%; max-width: 480px; min-width: 0; }
+.form__group { min-inline-size: 0; width: 100%; border: 0; padding: 0; margin: 0; }
 .form__label { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
 .form__field {
   display: block;
@@ -326,6 +321,8 @@ select:focus-visible {
   border-color: var(--color-red);
   box-shadow: 0 0 0 3px rgba(214, 40, 40, .18);
 }
+.form__field:focus-visible { outline: 3px solid var(--color-red); outline-offset: 2px; }
+.form__field:user-invalid { border-color: var(--color-red); }
 textarea.form__field { resize: vertical; }
 .form__submit { width: 100%; }
 .form__note { margin-top: var(--sp-1); color: var(--color-muted-dark); font-size: 13px; }
@@ -397,8 +394,8 @@ textarea.form__field { resize: vertical; }
 .hero__stat dt { font-size: 13px; color: var(--color-mist); }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero__copy { animation: hero-enter .55s ease-out both; }
-  .hero__content { animation: hero-enter .55s .16s ease-out both; }
+  .hero__copy { animation: hero-enter .5s ease-out both; }
+  .hero__content { animation: hero-enter .5s .16s ease-out both; }
 }
 @keyframes hero-enter {
   from { opacity: 0; transform: translateY(12px); }
@@ -446,7 +443,8 @@ textarea.form__field { resize: vertical; }
 .footer__nav a { color: var(--color-mist); font-size: 14px; }
 .footer__nav a:hover { color: var(--color-paper); }
 .footer__social { display: flex; gap: var(--sp-2); }
-.footer__social span { color: var(--color-mist); display: inline-flex; }
+.footer__social span { position: relative; display: block; width: 20px; height: 20px; overflow: hidden; mix-blend-mode: lighten; }
+.footer__social img { position: absolute; width: 34px; height: 34px; max-width: none; top: 50%; left: 50%; transform: translate(-50%, -50%); }
 .footer__copy { color: var(--color-muted-dark); font-size: 13px; width: 100%; order: 10; }
 
 
@@ -465,8 +463,8 @@ section[id] { scroll-margin-top: 84px; }
   h2 { font-size: 38px; }
 
   .programs__grid > *,
-  .coaches__grid > * { grid-column: span 6; }   /* 4-up -> 2-up */
-  .reviews__grid > * { grid-column: span 6; }   /* 3-up -> 2-up, last item wraps */
+  .coaches__grid > *,
+  .reviews__grid > * { flex-basis: calc((100% - var(--sp-3)) / 2); } /* 2-up */
 
   .hero { min-height: 620px; }
   .hero__inner { min-height: 530px; gap: var(--sp-4); }
@@ -479,6 +477,8 @@ section[id] { scroll-margin-top: 84px; }
 
   h1 { font-size: 46px; }
   h2 { font-size: 30px; }
+
+  .header { border-bottom-color: var(--color-muted-light); }
 
   /* Header: swap horizontal nav for an off-canvas panel triggered by JS */
   .nav-toggle {
@@ -513,7 +513,7 @@ section[id] { scroll-margin-top: 84px; }
     left: 0;
     right: 0;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
     gap: 0;
     background: var(--color-paper);
     border-bottom: 1px solid var(--color-line);
@@ -524,9 +524,9 @@ section[id] { scroll-margin-top: 84px; }
     transition: transform .2s ease, opacity .2s ease, visibility .2s ease;
   }
   .nav.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .nav__list { flex-direction: column; gap: 0; }
+  .nav__list { flex-direction: column; gap: 0; width: 100%; text-align: center; }
   .nav__list a { display: block; padding: 12px 0; }
-  .nav__cta { margin-top: var(--sp-2); align-self: flex-start; }
+  .nav__cta { margin-top: var(--sp-2); width: 220px; max-width: 100%; min-height: 56px; align-self: center; }
 
   /* Hero: keep all copy readable over the photograph. */
   .hero { min-height: 700px; padding: var(--sp-5) 0 var(--sp-4); background-position: 55% center; }
@@ -534,17 +534,23 @@ section[id] { scroll-margin-top: 84px; }
   .hero__content { margin-left: 0; }
   .hero__actions .btn { flex: 1 1 auto; }
 
-  /* Grids: single column on tablet-and-down */
+  /* Card rows: single column on tablet-and-down */
   .programs__grid > *,
   .coaches__grid > *,
-  .reviews__grid > * { grid-column: span 12; }
+  .reviews__grid > * { flex-basis: 100%; }
 
   .pricing__grid { flex-direction: column; }
-  .plan--featured { order: -1; }
 
-  .contact__inner { flex-direction: column; }
+  /* Reset the desktop flex basis: in a column, 420px creates empty height. */
+  .contact__inner { flex-direction: column; gap: var(--sp-4); }
+  .contact__info,
+  .contact form { flex: 0 1 auto; width: 100%; max-width: none; min-width: 0; }
 
-  .footer__inner { flex-direction: column; align-items: flex-start; }
+  .footer__inner { flex-direction: column; align-items: center; gap: var(--sp-4); text-align: center; }
+  .footer__nav ul { flex-direction: column; align-items: center; gap: var(--sp-2); }
+  .footer__nav a { display: inline-block; padding: 4px 12px; }
+  .footer__social { margin-top: var(--sp-1); }
+  .footer__copy { display: none; }
 }
 
 /* Breakpoint 3: below 480px — phones down to 320px */
@@ -567,4 +573,12 @@ section[id] { scroll-margin-top: 84px; }
   .btn--lg { padding: 14px 24px; }
 
   .section-head { margin-bottom: var(--sp-4); }
+
+  .contact__info h2 { max-width: 310px; font-size: 40px; line-height: 1.05; margin-bottom: var(--sp-4); }
+  .contact__info p { margin-bottom: var(--sp-3); }
+  .contact__details { gap: var(--sp-1); }
+  .contact__details dd { font-size: 14px; }
+  .contact .form__field { padding: 10px 12px; border-radius: 0; }
+  .contact textarea.form__field { min-height: 112px; height: 112px; }
+  .footer { padding: var(--sp-6) 0 var(--sp-4); }
 }

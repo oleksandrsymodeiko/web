@@ -4,6 +4,8 @@ A single-page HTML/CSS/JS prototype for a strength and conditioning gym. The
 hero now uses the photograph embedded in the supplied Gym Design Figma copy.
 Open `index.html` in a browser, or run a local static server from this folder.
 See `AUDIT.md` for the Figma comparison, module mapping, priorities, and tests.
+Read `LEARNING_GUIDE_UK.md` for a Ukrainian explanation of all eight modules
+and a file-by-file walkthrough of the code.
 
 ## Prototype status
 
@@ -17,13 +19,19 @@ file, and this project has no video section yet.
 ## Files
 
 ```
-ironworks/
+web-course/
 ├── index.html      semantic markup for all 9 sections
+├── css/fonts.css   local Anton and Inter font declarations
+├── fonts/          WOFF2 fonts and SIL OFL licenses
+├── img/*.png       supplied dumbbell and social icons
+├── CHANGELOG_UK.md latest mobile layout changes and testing
 ├── css/style.css   tokens, base styles, components, sections, media queries
 ├── js/main.js      mobile nav and demo-form feedback
 ├── img/gym-floor.jpg  photograph extracted from the supplied Figma copy
 ├── img/favicon.svg    lightweight browser icon
 ├── AUDIT.md        gap analysis, plan, and verification
+├── LEARNING_GUIDE_UK.md  module-by-module teaching guide
+├── .gitignore      excludes generated system/editor files
 └── README.md       this file
 ```
 
@@ -82,10 +90,9 @@ padding/gap value; don't hand-type a number that isn't on this list.
 
 - Container: max-width **1200px**, centered, side padding 24px (desktop) /
   20px (≤1024px) / 16px (≤480px).
-- Grid: **12 columns**, 24px gutter. Programs and Coaches cards span 3
-  columns (4-up); Reviews cards span 4 columns (3-up). Both collapse to
-  2-up at ≤1024px and 1-up at ≤768px — recreate as Figma auto-layout
-  wrapping frames, not fixed columns, so it's obvious how they reflow.
+- Card rows use wrapping **Flexbox** with a 24px gap. Programs and Coaches
+  are 4-up; Reviews are 3-up. All become 2-up at ≤1024px and 1-up at
+  ≤768px. The Figma frame can still use a 12-column reference grid.
 - Breakpoints: **1024px**, **768px**, **480px** (mobile floor 320px).
 
 ## Class → Figma layer naming
@@ -132,3 +139,7 @@ same names as Figma layer/frame names so the two stay traceable:
 - The schedule table uses real `<table>` markup with `scope` and a
   `caption`, and scrolls horizontally on narrow screens rather than
   reflowing into an unreadable stack.
+
+## Current mobile design
+
+See `CHANGELOG_UK.md`. The supplied PNG logos/icons are used directly. Mobile navigation and footer are centered; contact fields fill the container; pricing keeps the desktop order. Fonts are local, with no Google Fonts network dependency.
