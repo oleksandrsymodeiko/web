@@ -13,8 +13,7 @@ This is a visual prototype. The contact form uses native browser validation
 and displays a clear demo notice instead of sending personal information.
 Connect an approved form receiver before using it for real bookings. The
 address, phone, prices, schedule, coaches, testimonials, and social destinations
-still need owner verification. No background video was supplied in the Figma
-file, and this project has no video section yet.
+still need owner verification. The separately supplied MP4 is used in the Training section with a poster, pause button, deferred loading, and reduced-motion fallback.
 
 ## Files
 
@@ -26,7 +25,9 @@ web-course/
 ├── img/*.png       supplied dumbbell and social icons
 ├── CHANGELOG_UK.md latest mobile layout changes and testing
 ├── css/style.css   tokens, base styles, components, sections, media queries
-├── js/main.js      mobile nav and demo-form feedback
+├── js/main.js      mobile nav, background-video playback, demo-form feedback
+├── video/training.mp4 supplied 27-second, 640×360 background clip
+├── img/training-poster.jpg still frame extracted from the video
 ├── img/gym-floor.jpg  photograph extracted from the supplied Figma copy
 ├── img/favicon.svg    lightweight browser icon
 ├── AUDIT.md        gap analysis, plan, and verification
@@ -143,3 +144,7 @@ same names as Figma layer/frame names so the two stay traceable:
 ## Current mobile design
 
 See `CHANGELOG_UK.md`. The supplied PNG logos/icons are used directly. Mobile navigation and footer are centered; contact fields fill the container; pricing keeps the desktop order. Fonts are local, with no Google Fonts network dependency.
+
+## Training video
+
+The independent section follows Programs. It loads the 1.6 MB MP4 near the viewport, plays muted/inline in a loop, and pauses offscreen or in a background tab. The user can pause/resume. Reduced-motion mode keeps the poster and does not request the MP4. Original footage is SD, so large-screen softness is expected.

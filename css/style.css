@@ -408,6 +408,65 @@ textarea.form__field { resize: vertical; }
 /* Schedule (dark section) */
 .schedule { padding: var(--sp-7) 0; background: var(--color-ink); }
 
+/* Training: the poster also covers reduced-motion and failed-video states. */
+.training {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--color-ink) url('../img/training-poster.jpg') center / cover no-repeat;
+  color: var(--color-paper);
+}
+.training__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.training__video.is-ready { opacity: 1; }
+.training::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 9, .88), rgba(10, 10, 9, .4));
+  pointer-events: none;
+}
+.training__inner {
+  position: relative;
+  z-index: 1;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: var(--sp-6);
+  padding-bottom: var(--sp-7);
+}
+.training__kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--sp-2); }
+.training__title { font-size: clamp(40px, 5vw, 72px); line-height: 1.05; margin-bottom: var(--sp-3); }
+.training__text { max-width: 46ch; margin-bottom: var(--sp-4); color: var(--color-paper); }
+.training__toggle {
+  position: absolute;
+  bottom: var(--sp-3);
+  right: var(--container-pad);
+  z-index: 2;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--color-mist);
+  border-radius: var(--r-pill);
+  background: rgba(20, 20, 15, .75);
+  color: var(--color-paper);
+  font-size: 13px;
+}
+.training__toggle:hover { background: var(--color-ink); }
+@media (prefers-reduced-motion: reduce) {
+  .training__video,
+  .training__toggle { display: none; }
+}
+
 /* Coaches (light section) */
 .coaches { padding: var(--sp-7) 0; background: var(--color-paper-soft); }
 

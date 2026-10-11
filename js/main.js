@@ -1,6 +1,5 @@
 /**
  * Mobile navigation toggle.
- * Only JS on the page — everything else is HTML/CSS.
  * Handles: open/close, Escape to close, click-outside to close,
  * closing after a nav link is chosen, and keeping aria-expanded in sync.
  */
@@ -53,6 +52,67 @@
   window.addEventListener('resize', function () {
     if (window.innerWidth > 768 && isOpen()) closeNav();
   });
+})();
+
+// Load the decorative video only near the viewport. Pause it offscreen,
+// in a background tab, on request, or when reduced motion is preferred.
+(function () {
+  var section = document.querySelector('.training');
+  var video = document.querySelector('.training__video');
+  var toggle = document.querySelector('.training__toggle');
+  if (!section || !video || !toggle) return;
+
+  var source = video.querySelector('source');
+  var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var nearby = false;
+  var userPaused = false;
+  var loaded = false;
+  video.muted = true;
+
+  function updatePlayback() {
+    if (motion.matches || !nearby || document.hidden || userPaused) {
+      video.pause();
+      return;
+    }
+    if (!loaded) {
+      source.src = source.dataset.src;
+      video.load();
+      loaded = true;
+      toggle.hidden = false;
+    }
+    // Autoplay may be blocked by browser settings; the Play button remains.
+    var playback = video.play();
+    if (playback) playback.catch(function () {});
+  }
+
+  video.addEventListener('playing', function () {
+    video.classList.add('is-ready');
+    toggle.textContent = 'Pause video';
+  });
+  video.addEventListener('pause', function () {
+    toggle.textContent = 'Play video';
+  });
+  video.addEventListener('error', function () {
+    video.classList.remove('is-ready');
+    toggle.hidden = true;
+  });
+  toggle.addEventListener('click', function () {
+    userPaused = !video.paused;
+    updatePlayback();
+  });
+  motion.addEventListener('change', updatePlayback);
+  document.addEventListener('visibilitychange', updatePlayback);
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      nearby = entries[0].isIntersecting;
+      updatePlayback();
+    }, { rootMargin: '100px' });
+    observer.observe(section);
+  } else {
+    nearby = true;
+    updatePlayback();
+  }
 })();
 
 // The static demo has no form receiver. Keep browser validation active and
