@@ -6,7 +6,7 @@ Initial audit: 7 October 2026; module-by-module revision: 11 October 2026. Sourc
 
 The initially supplied folder contained `.vscode/launch.json` (a Chrome launch configuration pointing to `localhost:8080`) and `ironworks/` with `index.html`, `css/style.css`, `js/main.js`, and `README.md`. Initially there was no `.git`, package manifest, build script, test runner, image folder, or video folder. All logos and icons were inline SVG, and fonts came from Google Fonts. The delivered changes add Git history, `.gitignore`, `img/gym-floor.jpg`, `img/favicon.svg`, this audit, and `LEARNING_GUIDE_UK.md`. The project remains plain HTML/CSS/JS with no build step.
 
-`index.html` contains header/navigation, hero, programs, schedule table, coaches, pricing, reviews, contact form, and footer. Reusable components are the BEM-style `btn`, `program-card`, `coach-card`, `plan`, `review-card`, form fields, and menu toggle. `style.css` holds tokens, wrapping Flexbox card rows, component styles, and media queries at 1024, 768, and 480 px. `main.js` handles the mobile menu and demo-form response. `LEARNING_GUIDE_UK.md` explains the modules and code in Ukrainian.
+`index.html` contains header/navigation, hero, programs, schedule table, coaches, pricing, reviews, contact form, and footer. Reusable components are the BEM-style `btn`, `program-card`, `coach-card`, `plan`, `review-card`, form fields, and menu toggle. `style.css` holds tokens, wrapping Flexbox card rows, component styles, and one layout query at 900px and one reduced-motion query (after the 12 October refactor). `main.js` handles the mobile menu and demo-form response. `LEARNING_GUIDE_UK.md` explains the modules and code in Ukrainian.
 
 The `.fig` archive contains one gym photograph in two resolutions plus duplicate render sizes of a dumbbell mark, close icon, Instagram icon, and play icon. It contains no video. The 1024 × 683 photograph was copied into `img/` without a new download. A small SVG favicon derived from the existing inline barbell mark was added after a browser request exposed the missing icon.
 
@@ -67,8 +67,8 @@ Verified in a local Chromium browser at 320, 375, 768, 769, 1024, 1025, 1440, an
 ### Manual testing instructions
 
 1. Open `index.html` or run `python -m http.server 8080` from `ironworks/`; visit `http://localhost:8080/`.
-2. In DevTools, check widths 320, 375, 768, 1024, 1440, and 1920 px. Confirm no horizontal page scroll, legible hero copy, one/two/four-column card layouts, and scrollable schedule table.
-3. At 375 px, tab to the menu button; activate it with Space, tab through links, close with Escape, then resize above 768 px and confirm the mobile menu state clears.
+2. In DevTools, check widths 320, 375, 768, 1024, 1440, and 1920 px. Confirm no horizontal page scroll, legible hero copy, desktop four/three-column and mobile single-column card layouts, and scrollable schedule table.
+3. At 375 px, tab to the menu button; activate it with Space, tab through links, close with Escape, then resize above 900 px and confirm the mobile menu state clears.
 4. Submit the empty form and an invalid email; browser validation should stop submission. Enter a valid name/email; the page should state that the request was not sent.
 5. Test reduced-motion preference and inspect focus rings, text contrast, and network failures in Chrome, Firefox, and Safari where available.
 
@@ -82,3 +82,7 @@ Verified at 320, 375, 480, 768, 1024, and 1440 px in Chromium/Edge: no page over
 ## Training video verification
 
 Added from the explicitly supplied `5320003-sd_640_360_25fps.mp4`: 27 seconds, 640×360, 1,604,739 bytes. Verified actual playback, muted/loop/inline flags, manual pause/resume, offscreen pause, no MP4 request in reduced-motion mode, and no JS runtime errors. Checked 320/375/768px overflow and reviewed desktop/mobile screenshots. No external video service is required.
+
+## 12 October CSS simplification
+
+See `CSS_REFACTOR_UK.md` for exact reference counts and replacements. Five base color variables replace fourteen; zero-use colors removed. The sole red is #AE1F1F with about 6.01:1 contrast for paper-colored text. Three width queries became one at 900px; duplicate motion queries consolidated into one. CSS and JS menu thresholds match. Ten widths from 320 to 1920 passed overflow/title/form checks; 900→901 resize and video behavior passed. Earlier width-specific observations in this audit are historical.

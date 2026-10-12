@@ -23,6 +23,7 @@ web-course/
 ├── css/fonts.css   local Anton and Inter font declarations
 ├── fonts/          WOFF2 fonts and SIL OFL licenses
 ├── img/*.png       supplied dumbbell and social icons
+├── CSS_REFACTOR_UK.md palette usage, responsive simplification, code review
 ├── CHANGELOG_UK.md latest mobile layout changes and testing
 ├── css/style.css   tokens, base styles, components, sections, media queries
 ├── js/main.js      mobile nav, background-video playback, demo-form feedback
@@ -43,22 +44,7 @@ from them — same principle as the CSS custom properties below.
 
 ### Color
 
-| Token | Hex | Use |
-|---|---|---|
-| `--color-ink` | `#14140F` | Headings, dark section backgrounds |
-| `--color-ink-soft` | `#2A2A22` | Raised panels on dark sections |
-| `--color-paper` | `#F1EEE6` | Light section background, text on dark |
-| `--color-paper-soft` | `#E7E2D6` | Card fill on light sections |
-| `--color-concrete` | `#8B887D` | Secondary / muted text |
-| `--color-red` | `#D62828` | Primary accent — CTAs, links, badges |
-| `--color-red-dark` | `#AE1F1F` | Red hover state |
-| `--color-olive` | `#565A3C` | Secondary accent (used sparingly) |
-| `--color-line` | `rgba(20,20,15,.12)` | Hairline borders on light backgrounds |
-| `--color-line-dark` | `rgba(241,238,230,.16)` | Hairline borders on dark backgrounds |
-
-Contrast: body text (`--color-ink` on `--color-paper`) and all button labels
-meet WCAG AA. `--color-red` is used at text size only on large/bold text or
-as a solid button fill with light text — not for small body copy on paper.
+Five base colors: ink `#14140F`, paper `#F1EEE6`, paper-soft `#E7E2D6`, red `#AE1F1F`, muted `#625F55`. Borders/overlays use alpha variants of these colors. Button text on red has approximately 6.01:1 contrast. See `CSS_REFACTOR_UK.md` for the complete before/after usage analysis.
 
 ### Type
 
@@ -90,11 +76,10 @@ padding/gap value; don't hand-type a number that isn't on this list.
 ## Layout
 
 - Container: max-width **1200px**, centered, side padding 24px (desktop) /
-  20px (≤1024px) / 16px (≤480px).
+  fluid padding from 16px to 24px via clamp().
 - Card rows use wrapping **Flexbox** with a 24px gap. Programs and Coaches
-  are 4-up; Reviews are 3-up. All become 2-up at ≤1024px and 1-up at
-  ≤768px. The Figma frame can still use a 12-column reference grid.
-- Breakpoints: **1024px**, **768px**, **480px** (mobile floor 320px).
+  are 4-up; Reviews are 3-up. All become 1-up at ≤900px. The Figma frame can still use a 12-column reference grid.
+- Breakpoints: **900px** (one layout breakpoint) (mobile floor 320px).
 
 ## Class → Figma layer naming
 

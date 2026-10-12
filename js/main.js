@@ -50,7 +50,7 @@
 
   // Reset the mobile state if the viewport grows while the menu is open.
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 768 && isOpen()) closeNav();
+    if (window.innerWidth > 900 && isOpen()) closeNav();
   });
 })();
 
