@@ -9,10 +9,10 @@ and a file-by-file walkthrough of the code.
 
 ## Prototype status
 
-This is a visual prototype. Contact submission is temporarily disabled until a form service is connected. HTML field constraints remain in place.
+This is a visual prototype. The demo form uses an enabled submit button and native required/email/minlength validation. Its current action is a placeholder, so valid submissions are not delivered and may produce a static-server POST error; the form service will be configured separately.
 Connect an approved form receiver before using it for real bookings. The
 address, phone, prices, schedule, coaches, testimonials, and social destinations
-still need owner verification. The separately supplied MP4 is used in the Training section with a poster, a CSS-only Hide video background checkbox, and a reduced-motion visual fallback. CSS hides the video but does not pause playback or prevent downloading.
+still need owner verification. The separately supplied MP4 is used in the Training section with autoplay, muted looping inline playback, a poster, and a reduced-motion visual fallback. It has no custom pause/hide controls.
 
 ## Files
 
@@ -132,4 +132,4 @@ See `CHANGELOG_UK.md`. The supplied PNG logos/icons are used directly. Mobile na
 
 ## Training video
 
-The independent section follows Programs. HTML plays the supplied MP4 muted, inline, and in a loop. A keyboard-accessible checkbox hides the moving background through CSS and reveals the poster. Reduced-motion CSS also hides video. There is no script controlling video loading or pausing; hidden media may continue playback/downloading. The source is SD, so large-screen softness is expected.
+HTML plays the supplied MP4 muted, inline, and in a loop. No custom controls or visibility switch are present. CSS positions the background and overlay. Reduced-motion CSS hides video and leaves the poster; this does not guarantee paused playback or prevent downloading. Original footage is SD, so large-screen softness is expected.

@@ -295,7 +295,6 @@ select:focus-visible {
 textarea.form__field { resize: vertical; }
 .form__submit { width: 100%; }
 .form__note { margin-top: var(--sp-1); color: rgba(241, 238, 230, .78); font-size: 13px; }
-.form__submit:disabled { cursor: not-allowed; opacity: .65; transform: none; box-shadow: none; }
 
 
 /* ---------- 6. Sections ---------- */
@@ -375,7 +374,7 @@ textarea.form__field { resize: vertical; }
 /* Schedule (dark section) */
 .schedule { padding: var(--sp-7) 0; background: var(--color-ink); }
 
-/* Training: HTML video with a CSS-only visibility switch. */
+/* Training: decorative HTML video behind the text. */
 .training {
   position: relative;
   isolation: isolate;
@@ -392,7 +391,6 @@ textarea.form__field { resize: vertical; }
   object-position: center;
   pointer-events: none;
 }
-.training__switch:checked ~ .training__video { display: none; }
 .training::after {
   content: "";
   position: absolute;
@@ -414,38 +412,6 @@ textarea.form__field { resize: vertical; }
 .training__kicker { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: var(--sp-2); }
 .training__title { font-size: clamp(40px, 5vw, 72px); line-height: 1.05; margin-bottom: var(--sp-3); }
 .training__text { max-width: 46ch; margin-bottom: var(--sp-4); color: var(--color-paper); }
-.training__visibility {
-  position: absolute;
-  bottom: var(--sp-3);
-  right: var(--container-pad);
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--sp-1);
-  cursor: pointer;
-  min-height: 44px;
-  padding: 8px 16px;
-  border: 1px solid rgba(241, 238, 230, .78);
-  border-radius: var(--r-pill);
-  background: rgba(20, 20, 15, .75);
-  color: var(--color-paper);
-  font-size: 13px;
-}
-.training__visibility:hover { background: var(--color-ink); }
-.training__visibility::before {
-  content: "";
-  width: 16px;
-  height: 16px;
-  border: 1px solid currentColor;
-  line-height: 14px;
-  text-align: center;
-}
-.training__switch:checked ~ .training__visibility::before { content: "✓"; }
-.training__switch:focus-visible ~ .training__visibility {
-  outline: 3px solid var(--color-paper);
-  outline-offset: 3px;
-}
-
 /* Coaches (light section) */
 .coaches { padding: var(--sp-7) 0; background: var(--color-paper-soft); }
 
@@ -590,7 +556,5 @@ section[id] { scroll-margin-top: 84px; }
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
-  .training__switch,
-  .training__video,
-  .training__visibility { display: none; }
+  .training__video { display: none; }
 }
