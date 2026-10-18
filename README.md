@@ -9,11 +9,10 @@ and a file-by-file walkthrough of the code.
 
 ## Prototype status
 
-This is a visual prototype. The contact form uses native browser validation
-and displays a clear demo notice instead of sending personal information.
+This is a visual prototype. Contact submission is temporarily disabled until a form service is connected. HTML field constraints remain in place.
 Connect an approved form receiver before using it for real bookings. The
 address, phone, prices, schedule, coaches, testimonials, and social destinations
-still need owner verification. The separately supplied MP4 is used in the Training section with a poster, pause button, deferred loading, and reduced-motion fallback.
+still need owner verification. The separately supplied MP4 is used in the Training section with a poster, a CSS-only Hide video background checkbox, and a reduced-motion visual fallback. CSS hides the video but does not pause playback or prevent downloading.
 
 ## Files
 
@@ -23,10 +22,11 @@ web-course/
 ├── css/fonts.css   local Anton and Inter font declarations
 ├── fonts/          WOFF2 fonts and SIL OFL licenses
 ├── img/*.png       supplied dumbbell and social icons
+├── MAIN_JS_SIMPLE_UK.md current minimal JS and HTML/CSS video explanation
 ├── CSS_REFACTOR_UK.md palette usage, responsive simplification, code review
 ├── CHANGELOG_UK.md latest mobile layout changes and testing
 ├── css/style.css   tokens, base styles, components, sections, media queries
-├── js/main.js      mobile nav, background-video playback, demo-form feedback
+├── js/main.js      minimal mobile menu toggle and close-after-link behavior
 ├── video/training.mp4 supplied 27-second, 640×360 background clip
 ├── img/training-poster.jpg still frame extracted from the video
 ├── img/gym-floor.jpg  photograph extracted from the supplied Figma copy
@@ -132,4 +132,4 @@ See `CHANGELOG_UK.md`. The supplied PNG logos/icons are used directly. Mobile na
 
 ## Training video
 
-The independent section follows Programs. It loads the 1.6 MB MP4 near the viewport, plays muted/inline in a loop, and pauses offscreen or in a background tab. The user can pause/resume. Reduced-motion mode keeps the poster and does not request the MP4. Original footage is SD, so large-screen softness is expected.
+The independent section follows Programs. HTML plays the supplied MP4 muted, inline, and in a loop. A keyboard-accessible checkbox hides the moving background through CSS and reveals the poster. Reduced-motion CSS also hides video. There is no script controlling video loading or pausing; hidden media may continue playback/downloading. The source is SD, so large-screen softness is expected.
