@@ -1,4 +1,3 @@
-// Menu: open/close with the button and close after choosing a link.
 (function () {
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('primary-nav');
@@ -23,7 +22,6 @@
     isOpen() ? closeNav() : openNav();
   });
 
-  // Close after choosing a link — the menu shouldn't stay open on navigation.
   nav.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', closeNav);
   });

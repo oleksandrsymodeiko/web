@@ -10,7 +10,6 @@
   <link rel="preload" href="img/gym-floor.jpg" as="image">
 
   <link rel="preload" href="fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -100,7 +99,7 @@
           <p>Pick a lane or move between them — your membership covers all four.</p>
         </div>
 
-        <div class="programs__grid">
+        <div class="programs__list">
 
           <article class="program-card">
             <span class="program-card__icon" aria-hidden="true">
@@ -225,7 +224,7 @@
           <p>Four coaches, one programming philosophy: technique first, load second.</p>
         </div>
 
-        <div class="coaches__grid">
+        <div class="coaches__list">
 
           <article class="coach-card">
             <span class="coach-card__avatar" aria-hidden="true">MK</span>
@@ -267,7 +266,7 @@
           <p>No joining fee. Pause or cancel with two weeks' notice, any time.</p>
         </div>
 
-        <div class="pricing__grid">
+        <div class="pricing__list">
 
           <article class="plan">
             <h3 class="plan__name">Drop-in</h3>
@@ -315,7 +314,7 @@
           <h2>What the floor says</h2>
         </div>
 
-        <div class="reviews__grid">
+        <div class="reviews__list">
 
           <figure class="review-card">
             <blockquote>
@@ -361,12 +360,12 @@
             </div>
             <div>
               <dt>Phone</dt>
-              <dd>+1 (000) 000-0000</dd>
+              <dd>+38 (095) 000-00-00</dd>
             </div>
           </dl>
         </div>
 
-        <form class="form" action="#contact" method="post">
+        <form class="form" action="#https://formspree.io/f/xqpejynw" method="post">
 
           <fieldset class="form__group">
             <legend class="visually-hidden">Your contact details</legend>
@@ -389,13 +388,11 @@
             </select>
 
             <label class="form__label" for="message">Anything a coach should know</label>
-            <textarea class="form__field" id="message" name="message" rows="4"></textarea>
+            <textarea class="form__field" id="message" name="message" minlength="10" maxlength="500"></textarea>
           </fieldset>
 
           <button class="btn btn--primary form__submit" type="submit">Request my trial class</button>
-          <p class="form__note">Demo form — submission is not configured.</p>
         </form>
-
       </div>
     </section>
 
